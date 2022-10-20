@@ -1238,6 +1238,12 @@ static int usbg_import_config_attrs(config_setting_t *root, usbg_config *c)
 			goto out;
 
 		bMaxPower = config_setting_get_int(node);
+		/*
+		 * Linux kernel expects bMaxPower in terms of 1mA,
+		 * value read from the config would be in terms of 2mA
+		 * as in USB spec.
+		 */
+		bMaxPower *= 2;
 		usbg_ret = usbg_set_config_max_power(c, bMaxPower);
 		if (usbg_ret != USBG_SUCCESS) {
 			ret = usbg_ret;

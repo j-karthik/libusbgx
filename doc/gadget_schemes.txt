@@ -136,6 +136,9 @@ or present and filled with function attributes. Attribute names are
 similar as those from configfs. Currently usb configuration has only
 two attributes: bMaxPower and bmAttributes. Their meaning and set of
 allowed values can be found in usb standard.
+note: The attribute bMaxPower's value is expected to be in terms
+of 2mA.
+
 
 Strings section presence policy is the same as attrs section. This
 section contains a list (that's the meaning of parentheses) of strings
